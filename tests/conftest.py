@@ -29,6 +29,7 @@ def pytest_configure():
             'django.contrib.messages.middleware.MessageMiddleware',
         ],
         'ROOT_URLCONF': 'subscriptions.urls',
+        'SECRET_KEY': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890',
         'TEMPLATES': [
             {
                 'BACKEND': 'django.template.backends.django.DjangoTemplates',

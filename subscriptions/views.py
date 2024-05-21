@@ -69,7 +69,7 @@ class TagUpdateView(
     template_name = 'subscriptions/tag_update.html'
 
 
-class TagDeleteView(PermissionRequiredMixin, abstract.DeleteView):
+class TagDeleteView(PermissionRequiredMixin, SuccessMessageMixin, abstract.DeleteView):
     """View to delete a tag.
 
         View is extended to handle additional attributes noted below.
@@ -86,11 +86,6 @@ class TagDeleteView(PermissionRequiredMixin, abstract.DeleteView):
     success_message = 'Tag successfully deleted'
     success_url = reverse_lazy('dfs_tag_list')
     template_name = 'subscriptions/tag_delete.html'
-
-    def delete(self, request, *args, **kwargs):
-        """Override delete to allow success message to be added."""
-        messages.success(self.request, self.success_message)
-        return super().delete(request, *args, **kwargs)
 
 
 # Subscription Plan Views
@@ -304,7 +299,7 @@ class PlanUpdateView(PermissionRequiredMixin, abstract.UpdateView):
         )
 
 
-class PlanDeleteView(PermissionRequiredMixin, abstract.DeleteView):
+class PlanDeleteView(PermissionRequiredMixin, SuccessMessageMixin, abstract.DeleteView):
     """View to delete a subscription plan.
 
         View is extended to handle additional attributes noted below.
@@ -321,11 +316,6 @@ class PlanDeleteView(PermissionRequiredMixin, abstract.DeleteView):
     success_message = 'Subscription plan successfully deleted'
     success_url = reverse_lazy('dfs_plan_list')
     template_name = 'subscriptions/plan_delete.html'
-
-    def delete(self, request, *args, **kwargs):
-        """Override delete to allow success message to be added."""
-        messages.success(self.request, self.success_message)
-        return super().delete(request, *args, **kwargs)
 
 
 # User Subscription Views
@@ -373,7 +363,7 @@ class SubscriptionUpdateView(
     template_name = 'subscriptions/subscription_update.html'
 
 
-class SubscriptionDeleteView(PermissionRequiredMixin, abstract.DeleteView):
+class SubscriptionDeleteView(PermissionRequiredMixin, SuccessMessageMixin, abstract.DeleteView):
     """View to delete a user subscription.
 
         View is extended to handle additional attributes noted below.
@@ -390,13 +380,6 @@ class SubscriptionDeleteView(PermissionRequiredMixin, abstract.DeleteView):
     success_message = 'User subscription successfully deleted'
     success_url = reverse_lazy('dfs_subscription_list')
     template_name = 'subscriptions/subscription_delete.html'
-
-    def delete(self, request, *args, **kwargs):
-        """Override delete to allow success message to be added."""
-        messages.success(self.request, self.success_message)
-        return super().delete(
-            request, *args, **kwargs
-        )
 
 
 # Subscription Transaction Views
@@ -461,7 +444,7 @@ class PlanListUpdateView(
     template_name = 'subscriptions/plan_list_update.html'
 
 
-class PlanListDeleteView(PermissionRequiredMixin, abstract.DeleteView):
+class PlanListDeleteView(PermissionRequiredMixin, SuccessMessageMixin, abstract.DeleteView):
     """View to delete a plan list.
 
         View is extended to handle additional attributes noted below.
@@ -478,11 +461,6 @@ class PlanListDeleteView(PermissionRequiredMixin, abstract.DeleteView):
     success_message = 'Plan list successfully deleted'
     success_url = reverse_lazy('dfs_plan_list_list')
     template_name = 'subscriptions/plan_list_delete.html'
-
-    def delete(self, request, *args, **kwargs):
-        """Override delete to allow success message to be added."""
-        messages.success(self.request, self.success_message)
-        return super().delete(request, *args, **kwargs)
 
 
 # PlanListDetail Views
@@ -558,7 +536,7 @@ class PlanListDetailUpdateView(
         )
 
 
-class PlanListDetailDeleteView(PermissionRequiredMixin, abstract.DeleteView):
+class PlanListDetailDeleteView(PermissionRequiredMixin, SuccessMessageMixin, abstract.DeleteView):
     """View to delete a plan list detail.
 
         View is extended to handle additional attributes noted below.
@@ -584,13 +562,6 @@ class PlanListDetailDeleteView(PermissionRequiredMixin, abstract.DeleteView):
         )
 
         return context
-
-    def delete(self, request, *args, **kwargs):
-        """Override delete to allow success message to be added."""
-        messages.success(self.request, self.success_message)
-        return super().delete(
-            request, *args, **kwargs
-        )
 
     def get_success_url(self):
         return reverse_lazy(

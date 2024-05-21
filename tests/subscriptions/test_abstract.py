@@ -1,7 +1,10 @@
 """Tests for the abstract module."""
 from unittest.mock import patch
 
+from django.urls import reverse
+
 from subscriptions import abstract
+from django.test import RequestFactory
 
 
 def test_template_view_get_context_data():
@@ -64,7 +67,11 @@ def test_update_view_get_context_data():
 
 def test_delete_view_get_context_data():
     """Tests that context is properly extended."""
+    factory = RequestFactory()
+    request = factory.get('/fake-path/')
+
     view = abstract.DeleteView()
+    view.request = request
     view.object = None
     context = view.get_context_data()
 
