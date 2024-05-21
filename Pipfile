@@ -4,7 +4,7 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [packages]
-django = "*"  # https://github.com/django/django
+django = ">=4.2,<4.3"  # https://github.com/django/django
 
 
 [dev-packages]
