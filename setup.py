@@ -31,20 +31,20 @@ setup(
         'Source code': 'https://github.com/studybuffalo/django-flexible-subscriptions',
         'Issues': 'https://github.com/studybuffalo/django-flexible-subscriptions/issues',
     },
-    python_requires='>=3.5',
+    python_requires='>=3.8',
     install_requires=[
-        'django>=2.2',
+        'django>=3.2',
     ],
     tests_require=[
-        'pytest==6.0.1',
-        'pytest-cov==2.10.1',
+        'pytest==8.2.1',
+        'pytest-cov==5.0.0',
     ],
     # See http://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
-        'Framework :: Django :: 2.2',
-        'Framework :: Django :: 3.0',
+        'Framework :: Django :: 3.2',
+        'Framework :: Django :: 4.2',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Operating System :: Unix',
